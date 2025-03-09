@@ -127,3 +127,121 @@
 // // value and type of null is null (is still an null for legacy reasons)
 // console.log(typeof null);
 
+// //******************************************* */ Section - 12: let, const and var
+// /**
+//  * - let and const were introduced in ES6
+//  * - we use the 'let' keyword to declare variables that can change later (during the execution of our program)
+//  * - we use the 'const' keyword to declare variables that are not supposed to change at any point in future
+//  * - Note: Best practice for writing clean code, always use const by default and let only when a variable needs to change in future
+//  * - 'var' should be completely avoided
+//  * - 'let' is block scoped and 'var' is function scpoed
+//  */
+// let age = 30;
+// age = 31;   // resigning a value to variable or mutating the variable
+
+// const birthYear = 1991; // Immutable variable
+// // birthYear = 1990;   // We'll get an TypeError 
+
+// // const job;  // We cannot declare empty const variables
+
+// var job = 'programmer';
+// job = 'teacher';
+
+// // Sometimes we actually don't have to declare variables at all
+// lastName = 'Schmdtmann';    // Terrible this idea, javaScript will create this property in global context
+// console.log(lastName);
+
+// //******************************************* */ Section - 13: Basic Operators
+// /**
+//  * Operators: They allow us to transform values or combine values
+//  * Many categories of operators, for example:
+//  * - Mathematical Operators
+//  * - Comparision Operators
+//  * - Logical Operators
+//  * - Assignment Operators
+//  */
+
+// // Mathematical Operators
+// const now = 2037;
+// const ageJonas = now - 1991;
+// const ageSarah = now - 2018;
+// console.log(ageJonas, ageSarah);
+
+// console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);   // 2 ** 3 means 2 to the power of 3 = 2 * 2 * 2
+// const firstName = "Jonas";
+// const lastName = "Schmedtmann";
+// console.log(firstName + " " + lastName);
+
+// // Assignment Operators
+// let x = 10 + 5; // "=" is the assignment operator, x is 15 after this
+// x += 10;    // x = x + 10 = 25
+// x *= 4; // x = x * 4 = 100
+// x++;    // x = x + 1 = 101
+// x--;    // x = x - 1 = 100
+// x--;
+// console.log(x);
+
+// // Comparision Operators: to produce Boolean values
+// console.log(ageJonas > ageSarah);   // >, <, >=, <=
+// console.log(ageSarah >= 18);
+// // Console has the access to all the variables that are running in the current script
+
+// const isFullAge = ageSarah >= 18;
+
+// console.log(now - 1991 > now - 2018);
+
+// //******************************************* */ Section - 14: Operator Precedence
+// const now = 2037;
+// const ageJonas = now - 1991;
+// const ageSarah = now - 2018;
+
+// console.log(now - 1991 > now - 2018);
+
+// /**
+//  * - JavaScript has a well defined order of operator precedence
+//  * - Order in which operators are executed
+//  * - Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table
+//  */
+// // console.log(25 - 10 - 5);
+
+// let x, y;
+// x = y = 25 - 10 - 5;    // x = y = 10, x = 10
+// console.log(x, y);
+
+// const averageAge = (ageJonas + ageSarah) / 2;
+// console.log(ageJonas, ageSarah, averageAge);
+
+// //******************************************* */ Section - 16: CHALLENGE #1
+// /*
+// Coding Challenge #1 
+// Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula:
+// BMI = mass / height ** 2 = mass / (height * height) (mass in kg and height in meter). 
+
+// Your tasks: 
+// 1. Store Mark's and John's mass and height in variables 
+// 2. Calculate both their BMIs using the formula (you can even implement both versions) 
+// 3. Create a Boolean variable 'markHigherBMI' containing information about whether Mark has a higher BMI than John. 
+
+// Test data: 
+// § Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall. 
+// § Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall.
+//  */
+
+// // # Test Data 1
+// // const massMark = 78;
+// // const heightMark = 1.69;
+// // const massJohn = 92;
+// // const heightJohn = 1.95;
+
+// // # Test Data 2
+// const massMark = 95;
+// const heightMark = 1.88;
+// const massJohn = 85;
+// const heightJohn = 1.76;
+
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+// const markHigherBMI = BMIMark > BMIJohn;
+
+// console.log(BMIMark, BMIJohn, markHigherBMI);
+
