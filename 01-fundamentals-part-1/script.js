@@ -245,3 +245,153 @@
 
 // console.log(BMIMark, BMIJohn, markHigherBMI);
 
+// //******************************************* */ Section - 17: Strings and Template Literals
+// const firstName = "Jonas";
+// const job = "teacher";
+// const birthYear = 1991;
+// const year = 2037;
+
+// const jonas = "I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + '!';
+// console.log(jonas);
+
+// /**
+//  * Template Literals (ES6) - We can write a string in a more normal way and then insert the variables directly into the string.
+//  * - Then they will be replaced by values
+//  * - we can write any javaScript expression inside the {}
+//  * - Can be used for any regular strings
+//  * - Another use 
+//  */
+
+// const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+// console.log(jonasNew);
+// console.log(`Just a regular string...`);
+
+// // Before ES6 and string literals for multi-line string
+// console.log('String with \n\
+// multiple \n\
+// lines');
+
+// console.log(`String
+// multiple
+// lines`);
+
+// //******************************************* */ Section - 18: Taking Decisions: if / else Statements
+// /**
+//  * Boolean values can be used to take decisions using if statement
+//  * conditions that is evaluated
+//  * - else block is optional
+//  */
+// const age = 15;
+// // const isOldEnough = age >= 18;
+
+// if (age >= 18) {
+//     // conditions that is evaluated turns out to be true, then this block is executed
+//     console.log('Sarah can start driving license 🚗');
+// } else {
+//     // conditions that is evaluated to false, then this block is executed
+//     const yearsLeft = 18 - age;
+//     console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+// }
+
+// /**
+//  * if / else control structure
+//  * - this strucutre allows us to have more control over the way our code is executed
+//  * if () {
+//  * 
+//  * } else {
+//  * 
+//  * }
+//  */
+
+// /**
+//  * Any variable defined inside of a code block, is not accessable outside of the block
+//  */
+// // const birthYear = 1991;
+// // if (birthYear <= 2000) {
+// //     let century = 20;
+// // } else {
+// //     let century = 21;
+// // }
+// // console.log(century);
+
+// const birthYear = 1991;
+
+// let century;
+// if (birthYear <= 2000) {
+//     century = 20;
+// } else {
+//     century = 21;
+// }
+// console.log(century);
+
+// //******************************************* */ Section - 19: CHALLENGE #2: Video Solution
+// /*
+// Use the BMI example from Challenge #1, and the code you already wrote, and
+// improve it.
+// Your tasks:
+// 1. Print a nice output to the console, saying who has the higher BMI. The message
+// is either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+// 2. Use a template literal to include the BMI values in the outputs. Example: "Mark's
+// BMI (28.3) is higher than John's (23.9)!"
+// Hint: Use an if/else statement 😉
+// */
+
+// // # Test Data 1
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+
+// // // # Test Data 2
+// // const massMark = 95;
+// // const heightMark = 1.88;
+// // const massJohn = 85;
+// // const heightJohn = 1.76;
+
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+// console.log(BMIMark, BMIJohn);
+
+// if (BMIMark > BMIJohn) {
+//     console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
+// } else {
+//     console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
+// }
+
+//******************************************* */ Section - 20: Type Conversion and Coercion
+/**
+ * Types are one of the fundamental aspects in programming, and converting between types is something common in all programming languages
+ * Type Conversion: When we manually convert from one type to another. (we do explicitly)
+ * Type Coercion: When JavaScript automatically converts the types behind the scene for us. (Happens implicitly)
+ * NaN: JavaScript gives us this "not a number value" whenever an operation that involves numbers fails to produce a new number (Invalid number)
+ * JavaScript can only covert to three types
+ * - convert a number to a string or boolean, but cannot convert to undefined or null
+ */
+
+// Type Conversion
+const inputYear = "1991";
+// console.log(inputYear + 18);    // String + something = string concatination
+console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear) + 18);
+
+console.log(Number('Jonas'));   // When converting string which is not a number, we get NaN (Not a Number) value
+console.log(typeof NaN);    // type is number but it means an invalid number
+
+console.log(String(23), 23);
+
+// Type Coercion
+/**
+ * Type coercion happens whenever an operator is dealing with two values of different types
+ * In this case, JavaScript will then, behind the scenes, convert one of the values to match the other value so that in the end the operation can be executed.
+ */
+console.log('I am ' + 23 + ' years old');   // '+' operator triggers a coercion to strings
+console.log('I am ' + String(23) + ' years old'); // Same as this
+
+console.log('23' - '10' - 3);   // Result: 10 | JS Converted strings here to numbers
+console.log('23' * '2');    // Result: 46
+
+
+let n = '1' + 1;
+n = n - 1;
+console.log(n); // Answer: 10
+
