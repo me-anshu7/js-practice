@@ -494,3 +494,33 @@
  * NOT operator has precedence over AND & OR operator
  */
 
+//******************************************* */ Section - 24: Logical Operators
+const hasDriversLicense = true; // A
+const hasGoodVision = true; // B
+
+// && - And operator in JavaScript, with it we can combine 2 logical values
+// true && true - true
+// true && false - false
+console.log(hasDriversLicense && hasGoodVision);
+
+// true || false - true
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+// const shouldDrive = hasDriversLicense && hasGoodVision;
+// if (shouldDrive) {
+// if (hasDriversLicense && hasGoodVision) {
+//     console.log('Sarah is able to drive!');
+// } else {
+//     console.log('Someone else should drive...');
+// }
+
+const isTired = true;   // C
+console.log(hasDriversLicense || hasGoodVision || isTired);
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+    console.log('Sarah is able to drive!');
+} else {
+    console.log('Someone else should drive...');
+}
