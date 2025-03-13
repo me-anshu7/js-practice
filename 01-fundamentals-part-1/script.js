@@ -358,40 +358,139 @@
 //     console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
 // }
 
-//******************************************* */ Section - 20: Type Conversion and Coercion
+// //******************************************* */ Section - 20: Type Conversion and Coercion
+// /**
+//  * Types are one of the fundamental aspects in programming, and converting between types is something common in all programming languages
+//  * Type Conversion: When we manually convert from one type to another. (we do explicitly)
+//  * Type Coercion: When JavaScript automatically converts the types behind the scene for us. (Happens implicitly)
+//  * NaN: JavaScript gives us this "not a number value" whenever an operation that involves numbers fails to produce a new number (Invalid number)
+//  * JavaScript can only covert to three types
+//  * - convert a number to a string or boolean, but cannot convert to undefined or null
+//  */
+
+// // Type Conversion
+// const inputYear = "1991";
+// // console.log(inputYear + 18);    // String + something = string concatination
+// console.log(Number(inputYear), inputYear);
+// console.log(Number(inputYear) + 18);
+
+// console.log(Number('Jonas'));   // When converting string which is not a number, we get NaN (Not a Number) value
+// console.log(typeof NaN);    // type is number but it means an invalid number
+
+// console.log(String(23), 23);
+
+// // Type Coercion
+// /**
+//  * Type coercion happens whenever an operator is dealing with two values of different types
+//  * In this case, JavaScript will then, behind the scenes, convert one of the values to match the other value so that in the end the operation can be executed.
+//  */
+// console.log('I am ' + 23 + ' years old');   // '+' operator triggers a coercion to strings
+// console.log('I am ' + String(23) + ' years old'); // Same as this
+
+// console.log('23' - '10' - 3);   // Result: 10 | JS Converted strings here to numbers
+// console.log('23' * '2');    // Result: 46
+
+
+// let n = '1' + 1;    // "11" as string
+// n = n - 1;  // "-" will convert 11 to number
+// console.log(n); // Answer: 10
+
+// // 2 + 3 + 4 + "5" // Ans = "95" (String)
+// // '10' - '4' - '3' - 2 + '5'
+// // 6 - '3' - 2 + '5'
+// // 3 - 2  + '5'
+// // 1 + '5'
+// // Ans = "15" (String)
+
+// //******************************************* */ Section - 21: Truthy and Falsy Values
+// /**
+//  * Falsy values are values that are not exactly false, but will become false when we try to convert them into a Boolean
+//  * In JavaScript there are 5 Falsy values: 0, ''(empty string), undefined, null and NaN
+//  * Everthing else are Truthy values
+//  * Truthy values that will convert to true when we attempt to convert them to Boolean
+//  * In Practice, conversion to boolean is always implicit, not explicit, or in other words is always type coercion that JavaScript does automatically behind the scene.
+//  * It happens in two scenarios:
+//  * 1. When using logical operators
+//  * 2. In a logical context in the condition of an if-else statement
+//  * 
+//  * Another use case of Truthy and Falsy values is to check id a variable is actually defined or not.
+//  */
+
+// console.log(Boolean(0));    // false
+// console.log(Boolean(undefined));    // false
+// console.log(Boolean('Jonas'));  // true
+// console.log(Boolean({}));   // true
+// console.log(Boolean(''));   // false
+
+// const money = 0;
+// if (money) {    // JavaScript will coerce any value to boolean -> 0 converted to false
+//     console.log("Don't spend it all ;)");
+// } else {
+//     console.log('You should get a job!');
+// }
+
+// let height; // Issue arises when height is 0 | Faulty code
+// if (height) {
+//     console.log('YAY! Height is defined');
+// } else {
+//     console.log('Height is UNDEFINED');
+// }
+
+// //******************************************* */ Section - 22: Equality Operators: == vs ===
+// // const age = 18;
+// // if (age === 18) console.log('You just became an adult :D');    // No need of block {} as there is only 1 statement
+// /**
+//  * Just like the comparison operators, equality operators will return a true or a false value. Basically, a Boolean value.
+//  * But, in this case true will only be the result of this operator in case that both the sides are exactly same.
+//  * "===" - Strict equality operator, because it does not perform type coercion. It only returns true when both values are exactly the same.
+//  * "==" - Loose equality operator, actually does the type coercion.
+//  * Not recommened to use "Loose equality operator" because it is full of weird rules and behaviours, and can introduce many hard to find bugs in our code.
+//  * "Loose equality operator" should be avoided as much as possible.
+//  */
+// // 18 === 18    // true
+// // 18 === 19    // false
+
+// // '18' == 18   // true (string converted to number then compared)
+// // '18' === 18  // false
+
+// // const age = 18;
+// const age = '18';
+// if (age === 18) console.log('You just became an adult :D (strict)');
+
+// if (age == 18) console.log('You just became an adult :D (loose)');
+
+// // const favourite = prompt("What's your favourite number?");
+// const favourite = Number(prompt("What's your favourite number?"));
+// console.log(favourite);
+// console.log(typeof favourite);
+
+// // if (favourite == 23) {  // '23' == 23
+// // if (favourite === 23) {  // '23' === 23 | No logs
+// //     console.log('Cool! 23 is an amazing number!');
+// // }
+
+// // Adding more conditions to an if-else block
+// if (favourite === 23) {
+//     console.log('Cool! 23 is an amazing number!');
+// } else if (favourite === 7) {
+//     console.log('7 is also a cool number');
+// } else if (favourite === 9) {
+//     console.log('9 is also a cool number');
+// } else {
+//     console.log('Number is not 23 or 7 or 9');
+// }
+
+// // Different operator !== (strict version) & != (loose version)
+// if (favourite !== 23) console.log('Why not 23?');
+
+//******************************************* */ Section - 23: Boolean Logic
 /**
- * Types are one of the fundamental aspects in programming, and converting between types is something common in all programming languages
- * Type Conversion: When we manually convert from one type to another. (we do explicitly)
- * Type Coercion: When JavaScript automatically converts the types behind the scene for us. (Happens implicitly)
- * NaN: JavaScript gives us this "not a number value" whenever an operation that involves numbers fails to produce a new number (Invalid number)
- * JavaScript can only covert to three types
- * - convert a number to a string or boolean, but cannot convert to undefined or null
+ * Boolean Logic - branch of computer science, which uses true and false values to solve complex logical problems.
+ * Uses several logical operators to combine true and false values
+ * Basic Logical Operators - AND, OR & NOT
+ * AND - true when ALL are true (no matter how many variables)
+ * OR - true when ONE is true (no matter how many variables)
+ * NOT - acts on only one boolean value (Inverts true/false value)
+ * NOT operator has precedence over AND & OR operator
  */
-
-// Type Conversion
-const inputYear = "1991";
-// console.log(inputYear + 18);    // String + something = string concatination
-console.log(Number(inputYear), inputYear);
-console.log(Number(inputYear) + 18);
-
-console.log(Number('Jonas'));   // When converting string which is not a number, we get NaN (Not a Number) value
-console.log(typeof NaN);    // type is number but it means an invalid number
-
-console.log(String(23), 23);
-
-// Type Coercion
-/**
- * Type coercion happens whenever an operator is dealing with two values of different types
- * In this case, JavaScript will then, behind the scenes, convert one of the values to match the other value so that in the end the operation can be executed.
- */
-console.log('I am ' + 23 + ' years old');   // '+' operator triggers a coercion to strings
-console.log('I am ' + String(23) + ' years old'); // Same as this
-
-console.log('23' - '10' - 3);   // Result: 10 | JS Converted strings here to numbers
-console.log('23' * '2');    // Result: 46
-
-
-let n = '1' + 1;
-n = n - 1;
-console.log(n); // Answer: 10
 
