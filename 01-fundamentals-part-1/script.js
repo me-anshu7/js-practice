@@ -494,33 +494,162 @@
  * NOT operator has precedence over AND & OR operator
  */
 
-//******************************************* */ Section - 24: Logical Operators
-const hasDriversLicense = true; // A
-const hasGoodVision = true; // B
+// //******************************************* */ Section - 24: Logical Operators
+// const hasDriversLicense = true; // A
+// const hasGoodVision = true; // B
 
-// && - And operator in JavaScript, with it we can combine 2 logical values
-// true && true - true
-// true && false - false
-console.log(hasDriversLicense && hasGoodVision);
+// // && - And operator in JavaScript, with it we can combine 2 logical values
+// // true && true - true
+// // true && false - false
+// console.log(hasDriversLicense && hasGoodVision);
 
-// true || false - true
-console.log(hasDriversLicense || hasGoodVision);
-console.log(!hasDriversLicense);
+// // true || false - true
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense);
 
-// const shouldDrive = hasDriversLicense && hasGoodVision;
-// if (shouldDrive) {
-// if (hasDriversLicense && hasGoodVision) {
+// // const shouldDrive = hasDriversLicense && hasGoodVision;
+// // if (shouldDrive) {
+// // if (hasDriversLicense && hasGoodVision) {
+// //     console.log('Sarah is able to drive!');
+// // } else {
+// //     console.log('Someone else should drive...');
+// // }
+
+// const isTired = true;   // C
+// console.log(hasDriversLicense || hasGoodVision || isTired);
+// console.log(hasDriversLicense && hasGoodVision && isTired);
+
+// if (hasDriversLicense && hasGoodVision && !isTired) {
 //     console.log('Sarah is able to drive!');
 // } else {
 //     console.log('Someone else should drive...');
 // }
 
-const isTired = true;   // C
-console.log(hasDriversLicense || hasGoodVision || isTired);
-console.log(hasDriversLicense && hasGoodVision && isTired);
+// //******************************************* */ Section - 26: The switch Statement
+// /**
+//  * Switch Statement - Alternative way of writing a complicate if/else statement,
+//  * when all we want to do is to compare one value through multiple different options.
+//  * We can execute multiple lines of code and we don't need the curly braces
+//  * After the 'case' and ':', all the lines are executed
+//  * Compare the condition in a strict equality operator
+//  * 'default' is executed if all other cases fail
+//  * break - without the breaks the code simply continue executing
+//  */
 
-if (hasDriversLicense && hasGoodVision && !isTired) {
-    console.log('Sarah is able to drive!');
-} else {
-    console.log('Someone else should drive...');
-}
+// const day = 'friday';
+
+// switch (day) {
+//     case 'monday':  // day === 'monday'
+//         console.log('Plan course structure');
+//         console.log('Go to coding meetup');
+//         break;
+//     case 'tuesday':
+//         console.log('Prepare therory videos');
+//         break;
+//     case 'wednesday':
+//     case 'thursday':
+//         console.log('Write code examples');
+//         break;
+//     case 'friday':
+//         console.log('Record videos');
+//         break;
+//     case 'saturday':
+//     case 'sunday':
+//         console.log('Enjoy the weekend :D');
+//         break;
+//     default:
+//         console.log('Not a valid day!');
+// }
+
+// // Converting the switch statement as an if-else system
+// if (day === 'monday') {
+//     console.log('Plan course structure');
+//     console.log('Go to coding meetup');
+// } else if (day === 'tuesday') {
+//     console.log('Prepare theory vodeos');
+// } else if (day === 'wednesday' || day === 'thursday') {
+//     console.log('Write code examples');
+// } else if (day === 'friday') {
+//     console.log('Record videos');
+// } else if (day === 'saturday' || day === 'sunday') {
+//     console.log('Enjoy the weekend :D');
+// } else {
+//     console.log('Not a valid day!')
+// }
+
+// //******************************************* */ Section - 27: Statements and Expressions
+// /**
+//  * Expression: An Expression is a piece of code that produces a value
+//  * Statements: Statements are like a bigger piece of code that is executed and doesn't produce a value on its own.
+//  * Basically, when anything ends with a ';' is basically a statement
+//  * JavaScript expects statements and expressions in different places
+//  */
+// // Examples of Expressions
+// 3 + 4
+// 1991    // A value is also an expression
+// true && false && !false // At the end produce a boolean value
+
+// // This if/else is a statement
+// if (23 > 10) {
+//     const str = '23 is bigger'; // String is a statement and the whole sentence is a statement
+// }
+// const me = 'Jonas';
+// console.log(`I'm ${2037 - 1991} years old ${me}.`);    // 2037 - 1991 is an expression hence it works.
+// // console.log(`I'm ${if (23 > 10) {
+// //     const str = '23 is bigger';
+// // }} years old.`); // This won't work as it is a statement
+
+// //******************************************* */ Section - 28: The Conditional (Ternary) Operator
+// /**
+//  * The Conditional operator allows us to write something similar to an if/else statement but all in one line
+//  * Only one thing cane be done if the condition is true
+//  * else condition is mandatory
+//  * Also called as ternary operator because it has 3 parts (unlike other operators - condition, if part & else part)
+//  * An operator always produces a value (i.e. an operator is an expression), so can be used in a template literal
+//  * Ternary operator is not a replacement for if/else
+//  */
+
+// const age = 23;
+// // age >= 18 ? console.log('I like to drink wine 🍷') : console.log('I like to drink water 💧');
+
+// const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
+// console.log(drink);
+
+// let drink2;
+// if (age >= 18) {
+//     drink2 = 'wine 🍷';
+// } else {
+//     drink2 = 'water 💧';
+// }
+
+// console.log(drink2);
+
+// console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
+
+// //******************************************* */ Section - 29: CHALLENGE #4: Video Solution
+// // Coding Challenge #4
+// // Steven wants to build a very simple tip calculator for whenever he goes eating in a
+// // restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and
+// // 300. If the value is different, the tip is 20%.
+// // Your tasks:
+// // 1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for
+// // this. It's not allowed to use an if/else statement 😅 (If it's easier for you, you can
+// // start with an if/else statement, and then try to convert it to a ternary
+// // operator!)
+// // 2. Print a string to the console containing the bill value, the tip, and the final value
+// // (bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value
+// // 316.25”
+// // Test data:
+// // § Data 1: Test for bill values 275, 40 and 430
+// // Hints:
+// // § To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+// // § Value X is between 50 and 300, if it's >= 50 && <= 300 😉
+// // GOOD LUCK 😀
+
+// // const bill = 275;
+// // const bill = 40;
+// const bill = 430;
+// const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+// console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+
+//******************************************* */ Section - 30: JavaScript Releases: ES5, ES6+ and ESNext
